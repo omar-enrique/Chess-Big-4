@@ -1,0 +1,119 @@
+/// NETWORKING SEGMENT, IGNORE IT FOR NOW, WILL COME BACK AND PUT IT IN A MULTIPLAYER OPTION
+	/// -ZEID
+	/***************************************************/
+	/*
+	sf::IpAddress ip = sf::IpAddress::getLocalAddress();
+	sf::TcpSocket socket;
+	char connectionType;
+	char mode;
+	std::string textData = "Connected to: ";
+	std::size_t received;
+	char buffer[63240];
+
+	//HOST Server or Receiver Client
+	std::cout << "Enter (s) for Server, Enter (c) for client" << endl;
+	std::cin >> connectionType;
+
+	if (connectionType == 's')
+	{
+		sf::TcpListener listener;
+		listener.listen(63240);
+		listener.accept(socket);
+		textData += "Server";
+		socket.send(textData.c_str(), textData.length() + 1);
+	}
+	else if (connectionType == 'c')
+	{
+		socket.connect(ip, 63240);
+		textData += "Client: ";
+	}
+	socket.send(textData.c_str(), textData.length() + 1);
+	socket.receive(buffer, sizeof(buffer), received);
+
+	std::cout << buffer << std::endl;
+	system("pause");
+
+
+	/**
+	/*
+	sf::TcpSocket socket;
+	sf::Socket::Status status = socket.connect("10.0.2.15", 63240);
+
+	if (status != sf::Socket::Done)
+	{
+		std::cout << "Error has occured no connection. . ." << std::endl;
+	}
+
+	sf::TcpListener listener;
+
+	if (listener.listen(63240) != sf::Socket::Done)
+	{
+		std::cout << "Error has occured no connection. . ." << std::endl;
+	}
+
+	sf::TcpSocket client;
+
+	if (listener.accept(client) != sf::Socket::Done)
+	{
+		std::cout << "Error has occured no connection. . ." << std::endl;
+	}
+
+	//Sending and receiving data segment
+
+	char data[100];
+
+	if (socket.send(data, 100) != sf::Socket::Done)
+	{
+		std::cout << "Error has occured no connection. . ." << std::endl;
+	}
+
+	sf::IpAddress recipient = "10.0.2.15";
+	unsigned short port = 63240;
+
+	//Receiving data....
+
+	//char data[100];
+	std::size_t received;
+
+	if (socket.receive(data, 100, received) != sf::Socket::Done)
+	{
+		//Error blah
+	}
+	std::cout << "Success" << received << " bytes" << std::endl;
+
+	/*
+	sf::IpAddress sender;
+	unsigned short port;
+	if (socket.receive(data, 100, received, sender, port) != sf::Socket::Done)
+	{
+		//Error
+	}
+	*/
+
+	//Blocking Sockets
+	/*
+//	sf::TcpSocket socket;
+	sf::SocketSelector selector;
+	selector.add(socket);
+
+	if (selector.wait(sf::seconds(10)))
+	{
+		std::cout << "Success..." << std::endl;
+	}
+	else
+	{
+		cout << "Nothing was sent" << std::endl;
+
+		//Put cases here just incase
+	}
+
+	if (selector.wait(sf::seconds(10)))
+	{
+		{
+			if (selector.isReady(socket))
+			{
+				socket.receive();
+			}
+		}
+	}
+	**********************************************************************************/
